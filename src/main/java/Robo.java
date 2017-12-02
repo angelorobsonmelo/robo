@@ -1,7 +1,13 @@
+import javax.sound.midi.Patch;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Robo {
 
@@ -62,4 +68,17 @@ public class Robo {
         }
     }
 
+   public void lerLog() {
+        try {
+            Path arquivo = Paths.get("log.txt");
+            List<String> linhasArquivo = Files.readAllLines(arquivo);
+
+            for (String linha: linhasArquivo) {
+                System.out.println(linha);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
