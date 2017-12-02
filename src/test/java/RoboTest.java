@@ -14,19 +14,19 @@ public class RoboTest {
     }
 
     @Test
-    public void deveAndarParaDireta() {
+    public void deveAndarParaDireta()  {
         robo.andarParaDireta(1, 3);
         assertThat(3, is(robo.getPlanoCartesiano()[3][3]));
     }
 
     @Test
-    public void deveAndarParaEsquerda() {
+    public void deveAndarParaEsquerda()  {
         robo.andarParaEsquerda(0, 1);
         assertThat(1, is(robo.getPlanoCartesiano()[3][2]));
     }
 
     @Test
-    public void deveAndarParaBaixo() {
+    public void deveAndarParaBaixo()  {
         robo.andarParaBaixo(1, 1);
         assertThat(1, is(robo.getPlanoCartesiano()[4][2]));
     }
