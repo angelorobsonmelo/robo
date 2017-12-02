@@ -1,7 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class RoboTest {
 
@@ -14,38 +15,32 @@ public class RoboTest {
 
     @Test
     public void deveAndarParaDireta() {
-        robo.andarParaDireta(0, 0, 3);
-        assertEquals(3, robo.getPlanoCartesiano()[0][1].intValue());
+        robo.andarParaDireta(1, 3);
+        assertThat(3, is(robo.getPlanoCartesiano()[3][3]));
     }
 
     @Test
     public void deveAndarParaEsquerda() {
-        robo.andarParaEsquerda(0, 1, 3);
-        assertEquals(3, robo.getPlanoCartesiano()[0][0].intValue());
+        robo.andarParaEsquerda(0, 1);
+        assertThat(1, is(robo.getPlanoCartesiano()[3][2]));
     }
 
     @Test
     public void deveAndarParaBaixo() {
-        robo.andarParaBaixo(0, 0, 1);
-        assertEquals(1, robo.getPlanoCartesiano()[1][0].intValue());
+        robo.andarParaBaixo(1, 1);
+        assertThat(1, is(robo.getPlanoCartesiano()[4][2]));
     }
 
     @Test
     public void deveAndarParaCima() {
-        robo.andarParaCima(1, 0, 1);
-        assertEquals(1, robo.getPlanoCartesiano()[0][0].intValue());
+        robo.andarParaCima(1, 1);
+        assertThat(1, is(robo.getPlanoCartesiano()[2][2]));
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void deveLancarExcecaoSeTiverForaDoLimite() {
-        robo.andarParaBaixo(1, 0, 0);
-        robo.andarParaBaixo(1, 1, 1);
-        robo.andarParaBaixo(1, 2, 2);
-        robo.andarParaBaixo(1, 3, 3);
-        robo.andarParaBaixo(1, 4, 4);
-
-        robo.andarParaBaixo(1, 5, 5);
-
+        robo.andarParaBaixo(1, 0);
+        robo.andarParaBaixo(2, 0);
     }
 
 
